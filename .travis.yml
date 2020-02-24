@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t l3m4rk/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run l3m4rk/docker-react npm run test -- --coverage
